@@ -19,3 +19,36 @@
 # Sample Output
 # 2
 # 3
+def prime(x):
+    sum=0
+    for i in range(2, x):
+        if is_prime(x):
+            return sum+1        
+        if x%i==0 and is_prime(i):
+            sum+=1
+            while x%i==0:
+                x //= i
+    return(sum)
+
+def is_prime(x):
+    h=int(x**(1/2))
+    if x==1:
+        return False
+    if x==2:
+        return True
+    if x%2==0 and x!=2:
+        return False
+    
+    for i in range(3, h+1):
+        if x%i==0:
+            return False
+    return True
+
+import time
+n= int(input())
+#sm = int(round(time.time() * 1000))
+for i in range(n):
+    a=int(input())
+    print(prime(a))
+# em = int(round(time.time() * 1000))
+# print(em-sm)    
